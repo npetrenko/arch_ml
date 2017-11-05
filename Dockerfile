@@ -27,7 +27,7 @@ RUN ./NVIDIA-Linux-x86_64-367.48.run -s -N --no-kernel-module && \
     ./cuda-linux64-rel-8.0.44-21122537.run -noprompt
 
 # Ensure the CUDA libs and binaries are in the correct environment variables
-ENV LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
 ENV PATH=$PATH:/usr/local/cuda-8.0/bin
 
 RUN ./cuda-samples-linux-8.0.44-21122537.run -noprompt -cudaprefix=/usr/local/cuda-8.0 &&\
