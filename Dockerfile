@@ -46,4 +46,13 @@ RUN useradd -m -G wheel user && \
 
 ADD ./pyreqs.txt ./
 
-RUN pip install -r pyreqs.txt
+RUN pip install -r pyreqs.txt && mkdir /tmp/cudnn
+
+WORKDIR /tmp/cudnn
+
+# cudnn arhiv has to be in the dockerfile dir
+ADD cudnn* ./
+
+RUN mv cuda/include/* /usr/local/cuda/include && mv cuda/lib64/* /usr/local/cuda/lib64 && \
+    ldconfig /usr/local/cuda/lib64 && \
+    rm -R /tmp/cudnn
