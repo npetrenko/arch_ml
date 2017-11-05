@@ -11,3 +11,4 @@ gensim
 lightgbm
 ipython
 jupyter
+pymystem3

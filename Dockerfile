@@ -54,5 +54,10 @@ WORKDIR /tmp/cudnn
 ADD cudnn* ./
 
 RUN mv cuda/include/* /usr/local/cuda/include && mv cuda/lib64/* /usr/local/cuda/lib64 && \
-    ldconfig /usr/local/cuda/lib64 && \
-    rm -R /tmp/cudnn
+    ldconfig /usr/local/cuda/lib64
+
+WORKDIR /root
+
+#remove tmp files and initialize pymystem
+RUN rm -R /tmp/* && \
+    printf 'from pymystem3 import Mystem\nstem=Mystem()' | python -
