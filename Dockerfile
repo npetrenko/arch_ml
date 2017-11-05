@@ -36,4 +36,14 @@ RUN ./cuda-samples-linux-8.0.44-21122537.run -noprompt -cudaprefix=/usr/local/cu
 
 RUN rm -R /opt/nvidia_installers /tmp/nvidia_installers
 
-WORKDIR /usr/local/cuda/samples/1_Utilities/deviceQuery
+#WORKDIR /usr/local/cuda/samples/1_Utilities/deviceQuery
+WORKDIR /root
+
+RUN useradd -m -G wheel user && \
+    pacman -Syu --noconfirm && \
+    pacman -Sc --noconfirm && \
+    pacman -S --force --noconfirm vim python-pip opencv
+
+ADD ./pyreqs.txt ./
+
+RUN pip install -r pyreqs.txt
