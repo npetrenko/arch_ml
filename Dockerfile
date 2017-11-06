@@ -56,8 +56,15 @@ ADD cudnn* ./
 RUN mv cuda/include/* /usr/local/cuda/include && mv cuda/lib64/* /usr/local/cuda/lib64 && \
     ldconfig /usr/local/cuda/lib64
 
-WORKDIR /root
+#install openai gym
+RUN pacman -S swig && \
+    cd /tmp && \
+    git clone https://github.com/openai/gym.git && \
+    cd gym &&\
+    pip install -e '.[all]'
 
 #remove tmp files and initialize pymystem
 RUN rm -R /tmp/* && \
     printf 'from pymystem3 import Mystem\nstem=Mystem()' | python -
+
+WORKDIR /root
