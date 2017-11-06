@@ -12,3 +12,4 @@ lightgbm
 ipython
 jupyter
 pymystem3
+pillow
