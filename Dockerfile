@@ -7,7 +7,7 @@ ENV CUDA_RUN https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers
 RUN pacman -Sy && pacman -S --noconfirm \
   wget \
   module-init-tools \
-  base-devel
+  base-devel cmake
 
 RUN cd /opt && mkdir nvidia_installers && cd nvidia_installers && \
   wget $CUDA_RUN && \

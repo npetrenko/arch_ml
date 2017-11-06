@@ -13,3 +13,6 @@ ipython
 jupyter
 pymystem3
 pillow
+edward
+pymc3
+lasagne
