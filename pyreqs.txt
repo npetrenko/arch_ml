@@ -15,3 +15,14 @@ pymystem3
 pillow
 edward
 pymc3
+h5py
+six
+cython
+ipykernel
+ipywidgets
+jedi
+lxml
+nltk
+scikit-image
+statsmodels
+sympy
