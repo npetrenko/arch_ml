@@ -41,7 +41,6 @@ RUN rm -R /opt/nvidia_installers /tmp/nvidia_installers
 WORKDIR /root
 
 RUN useradd -m -G wheel user && \
-    pacman -Syu --noconfirm && \
     pacman -Sc --noconfirm && \
     pacman -S --force --noconfirm vim python-pip opencv
 
