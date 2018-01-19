@@ -26,3 +26,5 @@ nltk
 scikit-image
 statsmodels
 sympy
+videosequence
+pygobject
