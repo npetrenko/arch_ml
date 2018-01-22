@@ -5,6 +5,10 @@ FROM base/archlinux
 #ENV CUDA_RUN https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run
 ENV CUDA_RUN https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run
 
+RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen && locale-gen && echo LANG=en_US.UTF-8 > /etc/locale.conf
+
+ENV LC_ALL en_US.UTF-8
+
 RUN pacman -Sy && pacman -S --noconfirm \
   wget \
   module-init-tools \
