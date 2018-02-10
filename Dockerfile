@@ -14,7 +14,7 @@ ENV LC_ALL en_US.UTF-8
 RUN pacman -Sy && pacman -S --noconfirm \
   wget \
   module-init-tools \
-  base-devel cmake vim openssh
+  base-devel cmake vim openssh git
 
 RUN cd /opt && mkdir nvidia_installers && cd nvidia_installers && \
   wget $CUDA_RUN && \
@@ -25,8 +25,8 @@ RUN cd /opt && mkdir nvidia_installers && cd nvidia_installers && \
 
 WORKDIR /opt/nvidia_installers
 
-RUN  mkdir /usr/share/perl5/vendor_perl && \
-  cp InstallUtils.pm /usr/share/perl5/vendor_perl
+#RUN  mkdir /usr/share/perl5/vendor_perl && \
+RUN cp InstallUtils.pm /usr/share/perl5/vendor_perl
 
 WORKDIR /tmp/nvidia_installers
 
